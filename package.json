@@ -1,0 +1,42 @@
+{
+  "name": "tailwindcss-css-variables-palette-plugin",
+  "version": "1.0.0",
+  "description": "Palette plugin using CSS variables for TailwindCSS",
+  "keywords": [
+    "tailwind",
+    "tailwindcss",
+    "palette",
+    "color-palette",
+    "css-variable",
+    "tailwind-plugin",
+    "tailwindcss-plugin"
+  ],
+  "author": "Arthur Liege <liege.arthur60@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Thisisjuke/tailwindcss-css-variables-palette-plugin.git"
+  },
+  "homepage": "https://github.com/Thisisjuke/tailwindcss-css-variables-palette-plugin",
+  "license": "MIT",
+  "private": false,
+  "main": "./dist/plugin.umd.js",
+  "module": "./dist/plugin.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/plugin.es.js",
+      "require": "./dist/plugin.umd.js"
+    }
+  },
+  "scripts": {
+    "build": "vite build"
+  },
+  "devDependencies": {
+    "vite": "^2.7.10"
+  },
+  "dependencies": {
+    "tailwindcss": "^3.0.13"
+  },
+  "bugs": {
+    "url": "https://github.com/Thisisjuke/tailwindcss-css-variables-palette-plugin/issues"
+  }
+}
