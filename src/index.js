@@ -1,29 +1,29 @@
 import plugin from 'tailwindcss/plugin'
 import { extendedThemeColors, extractColorVars } from './utils/generators';
 
-const paletteCssVariablesPlugin = plugin.withOptions(function (options) {
-  return function({ addBase, theme }) {
-    addBase({
-      ':root': extractColorVars(theme('colors')),
-    });
-  }
-}, function (options) {
-  const colorsPalette = extendedThemeColors(options?.colors)
+const paletteCssVariablesPlugin = plugin.withOptions(
+    function ({ colors, ejectDefaultThemeColors = true } = {}) {
+        const colorsPalette = extendedThemeColors(colors);
 
-  return ({
-    theme: {
-      extend: {
-        colors: {
-          inherit: 'inherit',
-          current: 'currentColor',
-          transparent: 'transparent',
-          black: '#000',
-          white: '#fff',
-          ...colorsPalette
-        }
-      }
-    }
-  });
-})
+        return function ({ addBase, theme }) {
+            addBase({
+                ':root': extractColorVars(ejectDefaultThemeColors ? theme('colors') : colorsPalette),
+            });
+        };
+    },
+    function ({ colors } = {}) {
+        const colorsPalette = extendedThemeColors(colors);
+
+        return {
+            theme: {
+                extend: {
+                    colors: {
+                        ...colorsPalette,
+                    },
+                },
+            },
+        };
+    },
+)
 
 export default paletteCssVariablesPlugin;
