@@ -55,6 +55,7 @@ export const generatePalette = (name, baseColor) => {
   };
 
   const intensityMap = {
+    50: 0.95
     100: 0.9,
     200: 0.75,
     300: 0.6,
@@ -65,7 +66,7 @@ export const generatePalette = (name, baseColor) => {
     900: 0.49
   };
 
-  [100, 200, 300, 400].forEach(level => {
+  [50, 100, 200, 300, 400].forEach(level => {
     palette.colors[level] = lighten(baseColor, intensityMap[level]);
   });
 
