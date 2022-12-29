@@ -9,8 +9,15 @@ const generateColor = (name, color) => {
 export const extendedThemeColors = (colorsArray) => {
   const colorList = Object.keys(colorsArray).map(key => ({name : key, value:colorsArray[key]}))
 
-  const colorPaletteList = {}
-
+  // default properties
+  const colorPaletteList = {
+     inherit: 'inherit',
+     current: 'currentColor',
+     transparent: 'transparent',
+     black: '#000',
+     white: '#fff',
+  };
+  
   colorList.forEach(color => {
     const colors = generateColor(color.name, color.value)
     colorPaletteList[colors.colorName] = colors.colorsObject
